@@ -1,0 +1,67 @@
+{
+  "title": "CS322 CSV inspection",
+  "source": "/Users/pannawatthawonwong/Scienctific_Proj/possum.csv",
+  "source_sha256": "3af8ee0162be45d3b5ee11ba8ab4ccd9438f771a8adc8025f95448269063e81f",
+  "row_count": 104,
+  "column_names": [
+    "case",
+    "site",
+    "Pop",
+    "sex",
+    "age",
+    "hdlngth",
+    "skullw",
+    "totlngth",
+    "taill",
+    "footlgth",
+    "earconch",
+    "eye",
+    "chest",
+    "belly"
+  ],
+  "missing_values": {
+    "case": 0,
+    "site": 0,
+    "Pop": 0,
+    "sex": 0,
+    "age": 2,
+    "hdlngth": 0,
+    "skullw": 0,
+    "totlngth": 0,
+    "taill": 0,
+    "footlgth": 1,
+    "earconch": 0,
+    "eye": 0,
+    "chest": 0,
+    "belly": 0
+  },
+  "duplicate_rows_beyond_first": 0,
+  "raw_selected_dtypes": {
+    "hdlngth": "float64",
+    "totlngth": "float64",
+    "skullw": "float64"
+  },
+  "checked_numeric_dtypes": {
+    "hdlngth": "float64",
+    "totlngth": "float64",
+    "skullw": "float64"
+  },
+  "all_selected_columns_numeric": true,
+  "rows_used_by_every_model": 104,
+  "excluded_csv_rows_including_header": [],
+  "policy": "Drop only missing selected values. Retain duplicates and unusual observations.",
+  "observed_ranges": {
+    "hdlngth": {
+      "min": 82.5,
+      "max": 103.1
+    },
+    "totlngth": {
+      "min": 75.0,
+      "max": 96.5
+    },
+    "skullw": {
+      "min": 50.0,
+      "max": 68.6
+    }
+  }
+}

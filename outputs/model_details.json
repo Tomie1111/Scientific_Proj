@@ -1,0 +1,113 @@
+{
+  "title": "CS322 fitted model details",
+  "models": [
+    {
+      "function": "Linear",
+      "coefficients": {
+        "a": 42.70979314896375,
+        "b": 0.5729012843381804
+      },
+      "k": 2,
+      "predictor": "totlngth",
+      "metrics": {
+        "SSE": 687.0409963086432,
+        "RMSE": 2.5702457909788796,
+        "R_squared": 0.477610498577026,
+        "adjusted_R_squared": 0.4724890328768008
+      }
+    },
+    {
+      "function": "Quadratic",
+      "coefficients": {
+        "a": -44.260551916517265,
+        "b": 2.5891729994075425,
+        "c": -0.01165670933647265
+      },
+      "k": 3,
+      "predictor": "totlngth",
+      "metrics": {
+        "SSE": 678.5982622005524,
+        "RMSE": 2.5544046841465677,
+        "R_squared": 0.48402990540291935,
+        "adjusted_R_squared": 0.47381267580693764
+      }
+    },
+    {
+      "function": "Exponential",
+      "k": 2,
+      "coefficients": {
+        "A": 54.03650179282789,
+        "B": 0.006181202956685593
+      },
+      "initial_log_coefficients": {
+        "ln_A": 3.9838388586839533,
+        "B": 0.0062435478326668585
+      },
+      "initial_original_scale_SSE": 689.95430846058,
+      "optimizer_success": true,
+      "optimizer_message": "`ftol` termination condition is satisfied.",
+      "optimizer_evaluations": 4,
+      "predictor": "totlngth",
+      "metrics": {
+        "SSE": 689.764214117203,
+        "RMSE": 2.5753345826640492,
+        "R_squared": 0.4755399083197881,
+        "adjusted_R_squared": 0.4703981427150802
+      }
+    },
+    {
+      "function": "Linear",
+      "coefficients": {
+        "a": 46.19537302653774,
+        "b": 0.8158321143427164
+      },
+      "k": 2,
+      "predictor": "skullw",
+      "metrics": {
+        "SSE": 650.6572434834923,
+        "RMSE": 2.501263610433681,
+        "R_squared": 0.5052747727620398,
+        "adjusted_R_squared": 0.5004245254361774
+      }
+    },
+    {
+      "function": "Quadratic",
+      "coefficients": {
+        "a": -191.71381462175137,
+        "b": 8.989002544163037,
+        "c": -0.06994949380790647
+      },
+      "k": 3,
+      "predictor": "skullw",
+      "metrics": {
+        "SSE": 495.14909226995087,
+        "RMSE": 2.181982805645852,
+        "R_squared": 0.6235149156590676,
+        "adjusted_R_squared": 0.6160597654740987
+      }
+    },
+    {
+      "function": "Exponential",
+      "k": 2,
+      "coefficients": {
+        "A": 57.141604959633625,
+        "B": 0.008481318006606757
+      },
+      "initial_log_coefficients": {
+        "ln_A": 4.024811360582083,
+        "B": 0.00883854041356764
+      },
+      "initial_original_scale_SSE": 667.8731270659539,
+      "optimizer_success": true,
+      "optimizer_message": "`ftol` termination condition is satisfied.",
+      "optimizer_evaluations": 5,
+      "predictor": "skullw",
+      "metrics": {
+        "SSE": 666.5863056774597,
+        "RMSE": 2.531695816727814,
+        "R_squared": 0.49316315947789735,
+        "adjusted_R_squared": 0.4881941708453278
+      }
+    }
+  ]
+}

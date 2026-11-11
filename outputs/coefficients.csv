@@ -1,0 +1,15 @@
+predictor,function,parameter,value
+totlngth,Linear,a,42.7097931489637
+totlngth,Linear,b,0.57290128433818
+totlngth,Quadratic,a,-44.2605519165173
+totlngth,Quadratic,b,2.58917299940754
+totlngth,Quadratic,c,-0.0116567093364726
+totlngth,Exponential,A,54.0365017928279
+totlngth,Exponential,B,0.00618120295668559
+skullw,Linear,a,46.1953730265377
+skullw,Linear,b,0.815832114342716
+skullw,Quadratic,a,-191.713814621751
+skullw,Quadratic,b,8.98900254416304
+skullw,Quadratic,c,-0.0699494938079065
+skullw,Exponential,A,57.1416049596336
+skullw,Exponential,B,0.00848131800660676

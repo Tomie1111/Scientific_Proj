@@ -1,0 +1,7 @@
+predictor,function,input_value,input_unit,predicted_head_length_mm,observed_min,observed_max,within_observed_range
+totlngth,Linear,88,cm,93.1251061707236,75,96.5,True
+totlngth,Quadratic,88,cm,93.3171149297023,75,96.5,True
+totlngth,Exponential,88,cm,93.0936185152273,75,96.5,True
+skullw,Linear,57,mm,92.6978035440726,50,68.6,True
+skullw,Quadratic,57,mm,93.3934250136537,50,68.6,True
+skullw,Exponential,57,mm,92.6628475776807,50,68.6,True
