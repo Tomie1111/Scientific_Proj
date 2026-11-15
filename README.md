@@ -1,4 +1,4 @@
-# CS322 possum least-squares analysis
+# possum least-squares analysis
 
 Research question: How well can total length and skull width separately predict
 a possum's head length?
@@ -7,7 +7,7 @@ This project contains Python code and analysis outputs. No report or slides are
 included. The project brief was read as background; the requested scope and model
 definitions determine this implementation.
 
-## CS322 setup and run
+## setup and run
 
 Tested with Python 3.14.7. Use a virtual environment so dependencies stay local:
 
@@ -35,7 +35,7 @@ folder. Keep the input outside that folder. Figures save automatically; no plot
 window opens. `requirements.txt` pins the four analysis packages used in this run;
 the exact Python and package versions are also saved with each run.
 
-## CS322 files and outputs
+## files and outputs
 
 - `possum.csv`: original supplied data, preserved unchanged. Its external source
   and collection year are not established by the CSV; no provenance was invented.
@@ -57,10 +57,10 @@ the exact Python and package versions are also saved with each run.
   exponential initialization/convergence details.
 - `outputs/package_versions.json`, `outputs/verification.json`: run versions and
   numerical checks.
-- `outputs/table_captions.txt`: CS322 captions for the machine-readable CSV tables.
+- `outputs/table_captions.txt`: captions for the machine-readable CSV tables.
 - `outputs/analysis_output.txt`: plain-text tables, inspection and fitting notes.
 
-## CS322 data and fitting methods
+## data and fitting methods
 
 `hdlngth` is head length in mm (outcome). `totlngth` is total length in cm and
 `skullw` is skull width in mm. The predictors are fitted **separately**, never
@@ -104,7 +104,7 @@ formula is a **descriptive extension**. All metrics describe **in-sample fit**;
 no held-out evaluation was requested, so they do not establish accuracy for
 unseen possums or causal effects.
 
-## CS322 observed results
+## observed results
 
 The skull-width quadratic has the strongest in-sample fit among the six models:
 R² = 0.623515, adjusted R² = 0.616060 and RMSE = 2.181983 mm. Its R² means it
@@ -127,7 +127,7 @@ turns downward near the upper end of the range, and sparse large skull widths
 make that shape worth discussing with the residual plots. No observation was
 removed to improve the curves.
 
-## CS322 verification and AI assistance
+## verification and AI assistance
 
 AI assisted with creating and commenting the code, running it on the supplied
 CSV, and explaining the resulting tables. Checks recompute metrics using scalar

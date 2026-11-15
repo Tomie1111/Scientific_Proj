@@ -1,5 +1,5 @@
 {
-  "title": "CS322 numerical verification",
+  "title": "numerical verification",
   "models_checked": 6,
   "metric_formulas_and_finiteness": "PASS",
   "totlngth_quadratic_SSE_no_greater_than_linear": "PASS",

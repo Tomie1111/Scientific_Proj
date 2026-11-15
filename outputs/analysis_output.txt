@@ -1,6 +1,6 @@
-CS322 possum least-squares analysis
+possum least-squares analysis
 {
-  "title": "CS322 CSV inspection",
+  "title": "CSV inspection",
   "source": "/Users/pannawatthawonwong/Scienctific_Proj/possum.csv",
   "source_sha256": "3af8ee0162be45d3b5ee11ba8ab4ccd9438f771a8adc8025f95448269063e81f",
   "row_count": 104,
@@ -67,7 +67,7 @@ CS322 possum least-squares analysis
   }
 }
 
-CS322 model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm
+model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm
 predictor    function   n                                               equation        SSE     RMSE  R_squared  adjusted_R_squared
  totlngth      Linear 104                      y = 42.70979315 +0.5729012843 * x 687.040996 2.570246   0.477610            0.472489
  totlngth   Quadratic 104 y = -44.26055192 +2.589172999 * x -0.01165670934 * x^2 678.598262 2.554405   0.484030            0.473813
@@ -76,7 +76,7 @@ predictor    function   n                                               equation
    skullw   Quadratic 104 y = -191.7138146 +8.989002544 * x -0.06994949381 * x^2 495.149092 2.181983   0.623515            0.616060
    skullw Exponential 104              y = 57.14160496 * exp(0.008481318007 * x) 666.586306 2.531696   0.493163            0.488194
 
-CS322 fitted coefficients: x uses the predictor's stated units; y is head length (mm)
+fitted coefficients: x uses the predictor's stated units; y is head length (mm)
 predictor    function parameter       value
  totlngth      Linear         a   42.709793
  totlngth      Linear         b    0.572901
@@ -93,7 +93,7 @@ predictor    function parameter       value
    skullw Exponential         A   57.141605
    skullw Exponential         B    0.008481
 
-CS322 separate example predictions of head length (mm)
+separate example predictions of head length (mm)
 predictor    function  input_value input_unit  predicted_head_length_mm  observed_min  observed_max  within_observed_range
  totlngth      Linear    88.000000         cm                 93.125106     75.000000     96.500000                   True
  totlngth   Quadratic    88.000000         cm                 93.317115     75.000000     96.500000                   True
@@ -102,7 +102,7 @@ predictor    function  input_value input_unit  predicted_head_length_mm  observe
    skullw   Quadratic    57.000000         mm                 93.393425     50.000000     68.600000                   True
    skullw Exponential    57.000000         mm                 92.662848     50.000000     68.600000                   True
 
-CS322 common observations, fitted head lengths and residuals (mm)
+common observations, fitted head lengths and residuals (mm)
  csv_row_including_header    hdlngth  totlngth    skullw  totlngth_linear_fitted_mm  totlngth_linear_residual_mm  totlngth_quadratic_fitted_mm  totlngth_quadratic_residual_mm  totlngth_exponential_fitted_mm  totlngth_exponential_residual_mm  skullw_linear_fitted_mm  skullw_linear_residual_mm  skullw_quadratic_fitted_mm  skullw_quadratic_residual_mm  skullw_exponential_fitted_mm  skullw_exponential_residual_mm
                         2  94.100000 89.000000 60.400000                  93.698007                     0.401993                     93.843050                        0.256950                       93.670831                          0.429169                95.471633                  -1.371633                   96.034994                     -1.934994                     95.373818                       -1.273818
                         3  92.500000 91.500000 57.600000                  95.130261                    -2.630261                     95.055893                       -2.555893                       95.129569                         -2.629569                93.187303                  -0.687303                   93.977099                     -1.477099                     93.135591                       -0.635591
@@ -209,7 +209,7 @@ CS322 common observations, fitted head lengths and residuals (mm)
                       104  91.500000 82.500000 55.200000                  89.974149                     1.525851                     90.007743                        1.492257                       89.981943                          1.518057                91.229306                   0.270694                   91.340220                      0.159780                     91.258965                        0.241035
                       105  93.600000 89.000000 59.900000                  93.698007                    -0.098007                     93.843050                       -0.243050                       93.670831                         -0.070831                95.063717                  -1.463717                   95.747954                     -2.147954                     94.970226                       -1.370226
 
-CS322 fitting notes
+fitting notes
 Linear/quadratic: explicit design matrices solved by numpy.linalg.lstsq.
 Exponential: log least squares initializes alpha=ln(A), B; scipy.optimize.least_squares
 then minimizes sum((y-exp(alpha+B*x))^2) in original head-length units.
@@ -221,7 +221,7 @@ Inputs outside observed ranges require caution: fitted shapes may not continue t
 AI helped write/comment the code and interpret outputs. The script was run on the supplied
 CSV; scalar formula checks, finite-value checks, nested-SSE checks and source hash checks passed.
 {
-  "title": "CS322 numerical verification",
+  "title": "numerical verification",
   "models_checked": 6,
   "metric_formulas_and_finiteness": "PASS",
   "totlngth_quadratic_SSE_no_greater_than_linear": "PASS",
@@ -229,7 +229,7 @@ CSV; scalar formula checks, finite-value checks, nested-SSE checks and source ha
   "source_CSV_unchanged": true
 }
 {
-  "title": "CS322 execution versions",
+  "title": "execution versions",
   "Python": "3.14.7",
   "pandas": "3.1.1",
   "NumPy": "2.5.4",

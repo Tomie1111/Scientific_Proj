@@ -1,4 +1,4 @@
-model_comparison.csv: CS322 model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm
-coefficients.csv: CS322 fitted coefficients: x uses the predictor's stated units; y is head length (mm)
-example_predictions.csv: CS322 separate example predictions of head length (mm)
-fitted_values_and_residuals.csv: CS322 common observations, fitted head lengths and residuals (mm)
+model_comparison.csv: model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm
+coefficients.csv: fitted coefficients: x uses the predictor's stated units; y is head length (mm)
+example_predictions.csv: separate example predictions of head length (mm)
+fitted_values_and_residuals.csv: common observations, fitted head lengths and residuals (mm)

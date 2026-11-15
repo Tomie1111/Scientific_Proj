@@ -1,4 +1,4 @@
-"""CS322: six separate least-squares models for possum head length.
+"""six separate least-squares models for possum head length.
 
 Run: python analysis.py [optional/path/to/possum.csv]
 Only the three selected columns determine which observations are included.
@@ -53,7 +53,7 @@ def inspect_data(csv_path):
         raise ValueError("R-squared is undefined when all head lengths are equal.")
 
     inspection = {
-        "title": "CS322 CSV inspection",
+        "title": "CSV inspection",
         "source": str(csv_path),
         "source_sha256": hashlib.sha256(csv_path.read_bytes()).hexdigest(),
         "row_count": len(raw),
@@ -195,7 +195,7 @@ def create_plots(x, y, models, predictor, xlabel, output):
         fig, ax = plt.subplots(figsize=(7, 4.8))
         ax.scatter(x, y, s=25, alpha=0.65, color="#4b5563", label="Observed possums")
         ax.plot(grid, predict(model, grid), color=COLORS[name], lw=2, label=f"{name} fit")
-        ax.set(title=f"CS322: Head length vs {xlabel.split(' (')[0].lower()} - {name}",
+        ax.set(title=f"Head length vs {xlabel.split(' (')[0].lower()} - {name}",
                xlabel=xlabel, ylabel="Head length (mm)")
         ax.legend()
         ax.grid(alpha=0.2)
@@ -205,7 +205,7 @@ def create_plots(x, y, models, predictor, xlabel, output):
         fig, ax = plt.subplots(figsize=(7, 4.8))
         ax.scatter(fitted, y-fitted, s=25, alpha=0.7, color=COLORS[name])
         ax.axhline(0, color="black", ls="--", lw=1)
-        ax.set(title=f"CS322: {predictor} {name} residuals",
+        ax.set(title=f"{predictor} {name} residuals",
                xlabel="Fitted head length (mm)",
                ylabel="Residual: observed - fitted head length (mm)")
         ax.grid(alpha=0.2)
@@ -216,7 +216,7 @@ def create_plots(x, y, models, predictor, xlabel, output):
     for model, style in zip(models, ["-", "--", ":"]):
         name = model["function"]
         ax.plot(grid, predict(model, grid), color=COLORS[name], ls=style, lw=2, label=name)
-    ax.set(title=f"CS322: Three functions for {xlabel.split(' (')[0].lower()}",
+    ax.set(title=f"Three functions for {xlabel.split(' (')[0].lower()}",
            xlabel=xlabel, ylabel="Head length (mm)")
     ax.legend()
     ax.grid(alpha=0.2)
@@ -244,7 +244,7 @@ def main():
     data, inspection = inspect_data(source)
     output.mkdir(parents=True, exist_ok=True)
     write_json(output / "data_inspection.json", inspection)
-    versions = {"title": "CS322 execution versions", "Python": platform.python_version(),
+    versions = {"title": "execution versions", "Python": platform.python_version(),
                 "pandas": pd.__version__, "NumPy": np.__version__,
                 "SciPy": scipy.__version__, "Matplotlib": matplotlib.__version__}
     write_json(output / "package_versions.json", versions)
@@ -253,7 +253,7 @@ def main():
     models_all, comparisons, coefficients, examples = [], [], [], []
     row_outputs = data.copy()
     row_outputs.insert(0, "csv_row_including_header", data.index + 2)
-    checks = {"title": "CS322 numerical verification", "models_checked": 0,
+    checks = {"title": "numerical verification", "models_checked": 0,
               "metric_formulas_and_finiteness": "PASS"}
     for predictor, (xlabel, example_x) in PREDICTORS.items():
         x = data[predictor].to_numpy(dtype=float)
@@ -290,14 +290,14 @@ def main():
         models_all.extend(models)
 
     captions = {
-        "model_comparison.csv": "CS322 model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm",
-        "coefficients.csv": "CS322 fitted coefficients: x uses the predictor's stated units; y is head length (mm)",
-        "example_predictions.csv": "CS322 separate example predictions of head length (mm)",
-        "fitted_values_and_residuals.csv": "CS322 common observations, fitted head lengths and residuals (mm)",
+        "model_comparison.csv": "model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm",
+        "coefficients.csv": "fitted coefficients: x uses the predictor's stated units; y is head length (mm)",
+        "example_predictions.csv": "separate example predictions of head length (mm)",
+        "fitted_values_and_residuals.csv": "common observations, fitted head lengths and residuals (mm)",
     }
     tables = [pd.DataFrame(comparisons), pd.DataFrame(coefficients),
               pd.DataFrame(examples), row_outputs]
-    log = ["CS322 possum least-squares analysis", json.dumps(inspection, indent=2)]
+    log = ["possum least-squares analysis", json.dumps(inspection, indent=2)]
     for (filename, caption), table in zip(captions.items(), tables):
         table.to_csv(output / filename, index=False, float_format="%.15g")
         log.extend(["\n" + caption, table.to_string(index=False, float_format=lambda v: f"{v:.6f}")])
@@ -309,9 +309,9 @@ def main():
     if not checks["source_CSV_unchanged"]:
         raise AssertionError("Source CSV changed during analysis.")
     write_json(output / "verification.json", checks)
-    write_json(output / "model_details.json", {"title": "CS322 fitted model details", "models": models_all})
+    write_json(output / "model_details.json", {"title": "fitted model details", "models": models_all})
     log.extend([
-        "\nCS322 fitting notes",
+        "\nfitting notes",
         "Linear/quadratic: explicit design matrices solved by numpy.linalg.lstsq.",
         "Exponential: log least squares initializes alpha=ln(A), B; scipy.optimize.least_squares",
         "then minimizes sum((y-exp(alpha+B*x))^2) in original head-length units.",
