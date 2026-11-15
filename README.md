@@ -123,10 +123,9 @@ turns downward near the upper end of the range, and sparse large skull widths
 make that shape worth discussing with the residual plots. No observation was
 removed to improve the curves.
 
-## verification and AI assistance
+## verification
 
-AI assisted with creating and commenting the code, running it on the supplied
-CSV, and explaining the resulting tables. Checks recompute metrics using scalar
+Checks recompute metrics using scalar
 sums, confirm finite coefficients/predictions/metrics, verify that quadratic
 training SSE is no greater than linear training SSE within numerical tolerance,
 check that exponential refinement does not increase original-scale SSE, and

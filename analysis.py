@@ -316,7 +316,7 @@ def main():
         "R^2 measures improvement over predicting the sample mean.",
         "All comparisons are in-sample; these metrics do not establish unseen-data accuracy.",
         "Inputs outside observed ranges require caution: fitted shapes may not continue there.",
-        "AI helped write/comment the code and interpret outputs. The script was run on the supplied",
+        "The script was run on the supplied",
         "CSV; scalar formula checks, finite-value checks, nested-SSE checks and source hash checks passed.",
         json.dumps(checks, indent=2), json.dumps(versions, indent=2),
     ])
