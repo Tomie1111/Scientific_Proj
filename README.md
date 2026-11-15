@@ -93,21 +93,17 @@ SSE = sum(residual**2)                           (mm^2)
 RMSE = sqrt(SSE/n)                              (mm)
 SST = sum((y - mean(y))**2)                      (mm^2)
 R^2 = 1 - SSE/SST
-adjusted R^2 = 1 - (SSE/(n-k))/(SST/(n-1))
 ```
 
-Here `k` counts all parameters, including the intercept: 2 for linear, 3 for
-quadratic and 2 for exponential. R² describes improvement over predicting the
-sample mean. Adjusted R² penalizes extra parameters, so it need not improve when
-a parameter is added. For the nonlinear exponential model, this adjusted R²
-formula is a **descriptive extension**. All metrics describe **in-sample fit**;
+R² describes improvement over predicting the sample mean.
+All metrics describe **in-sample fit**;
 no held-out evaluation was requested, so they do not establish accuracy for
 unseen possums or causal effects.
 
 ## observed results
 
 The skull-width quadratic has the strongest in-sample fit among the six models:
-R² = 0.623515, adjusted R² = 0.616060 and RMSE = 2.181983 mm. Its R² means it
+R² = 0.623515 and RMSE = 2.181983 mm. Its R² means it
 accounts for about 62.4% of the sample's variation in head length. The
 total-length quadratic has R² = 0.484030 and RMSE = 2.554405 mm; its improvement
 over total-length linear fitting is small (linear RMSE = 2.570246 mm).

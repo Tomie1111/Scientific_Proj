@@ -143,7 +143,7 @@ def equation(model):
     return text
 
 
-def metrics(y, y_hat, k):
+def metrics(y, y_hat):
     """All errors are in the original head-length scale (mm)."""
     n = len(y)
     residual = y - y_hat
@@ -156,19 +156,16 @@ def metrics(y, y_hat, k):
         "RMSE": float(np.sqrt(sse/n)),
         # R²
         "R_squared": 1 - sse/sst,
-        # Adjusted R²
-        "adjusted_R_squared": 1 - (sse/(n-k))/(sst/(n-1)),
     }
 
 
 def verify_model(model, y, y_hat):
     """Recompute formulas by scalar sums, independently of metrics()."""
-    n, k = len(y), model["k"]
+    n = len(y)
     mean_y = sum(float(v) for v in y) / n
     sse = sum((float(a) - float(b))**2 for a, b in zip(y, y_hat))
     sst = sum((float(v) - mean_y)**2 for v in y)
-    expected = [sse, (sse/n)**0.5, 1-sse/sst,
-                1-(sse/(n-k))/(sst/(n-1))]
+    expected = [sse, (sse/n)**0.5, 1-sse/sst]
     actual = list(model["metrics"].values())
     if not (np.isfinite(y_hat).all() and np.isfinite(actual).all()
             and np.isfinite(list(model["coefficients"].values())).all()):
@@ -261,7 +258,7 @@ def main():
         for model in models:
             model["predictor"] = predictor
             fitted = predict(model, x)
-            model["metrics"] = metrics(y, fitted, model["k"])
+            model["metrics"] = metrics(y, fitted)
             verify_model(model, y, fitted)
             checks["models_checked"] += 1
             comparisons.append({"predictor": predictor, "function": model["function"],
@@ -316,8 +313,7 @@ def main():
         "Exponential: log least squares initializes alpha=ln(A), B; scipy.optimize.least_squares",
         "then minimizes sum((y-exp(alpha+B*x))^2) in original head-length units.",
         "Log fitting alone minimizes squared log errors, a different objective.",
-        "R^2 measures improvement over predicting the sample mean. Adjusted R^2 penalizes",
-        "parameter count using k=2,3,2. For nonlinear exponential fits it is a descriptive extension.",
+        "R^2 measures improvement over predicting the sample mean.",
         "All comparisons are in-sample; these metrics do not establish unseen-data accuracy.",
         "Inputs outside observed ranges require caution: fitted shapes may not continue there.",
         "AI helped write/comment the code and interpret outputs. The script was run on the supplied",

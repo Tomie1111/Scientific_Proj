@@ -68,13 +68,13 @@ possum least-squares analysis
 }
 
 model comparison: in-sample fit on head length (mm); SSE in mm^2, RMSE in mm
-predictor    function   n                                               equation        SSE     RMSE  R_squared  adjusted_R_squared
- totlngth      Linear 104                      y = 42.70979315 +0.5729012843 * x 687.040996 2.570246   0.477610            0.472489
- totlngth   Quadratic 104 y = -44.26055192 +2.589172999 * x -0.01165670934 * x^2 678.598262 2.554405   0.484030            0.473813
- totlngth Exponential 104              y = 54.03650179 * exp(0.006181202957 * x) 689.764214 2.575335   0.475540            0.470398
-   skullw      Linear 104                      y = 46.19537303 +0.8158321143 * x 650.657243 2.501264   0.505275            0.500425
-   skullw   Quadratic 104 y = -191.7138146 +8.989002544 * x -0.06994949381 * x^2 495.149092 2.181983   0.623515            0.616060
-   skullw Exponential 104              y = 57.14160496 * exp(0.008481318007 * x) 666.586306 2.531696   0.493163            0.488194
+predictor    function   n                                               equation        SSE     RMSE  R_squared
+ totlngth      Linear 104                      y = 42.70979315 +0.5729012843 * x 687.040996 2.570246   0.477610
+ totlngth   Quadratic 104 y = -44.26055192 +2.589172999 * x -0.01165670934 * x^2 678.598262 2.554405   0.484030
+ totlngth Exponential 104              y = 54.03650179 * exp(0.006181202957 * x) 689.764214 2.575335   0.475540
+   skullw      Linear 104                      y = 46.19537303 +0.8158321143 * x 650.657243 2.501264   0.505275
+   skullw   Quadratic 104 y = -191.7138146 +8.989002544 * x -0.06994949381 * x^2 495.149092 2.181983   0.623515
+   skullw Exponential 104              y = 57.14160496 * exp(0.008481318007 * x) 666.586306 2.531696   0.493163
 
 fitted coefficients: x uses the predictor's stated units; y is head length (mm)
 predictor    function parameter       value
@@ -214,8 +214,7 @@ Linear/quadratic: explicit design matrices solved by numpy.linalg.lstsq.
 Exponential: log least squares initializes alpha=ln(A), B; scipy.optimize.least_squares
 then minimizes sum((y-exp(alpha+B*x))^2) in original head-length units.
 Log fitting alone minimizes squared log errors, a different objective.
-R^2 measures improvement over predicting the sample mean. Adjusted R^2 penalizes
-parameter count using k=2,3,2. For nonlinear exponential fits it is a descriptive extension.
+R^2 measures improvement over predicting the sample mean.
 All comparisons are in-sample; these metrics do not establish unseen-data accuracy.
 Inputs outside observed ranges require caution: fitted shapes may not continue there.
 AI helped write/comment the code and interpret outputs. The script was run on the supplied
